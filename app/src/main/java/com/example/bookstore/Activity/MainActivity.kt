@@ -16,25 +16,26 @@ import com.example.bookstore.R
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
-    lateinit var toolbar:Toolbar
-    lateinit var drawerlayout:DrawerLayout
+    lateinit var toolbar: Toolbar
+    lateinit var drawerlayout: DrawerLayout
 
-    lateinit var navigationview : NavigationView
+    lateinit var navigationview: NavigationView
 
-    var previousmenuitem:MenuItem?=null
+    var previousmenuitem: MenuItem? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        toolbar=findViewById(R.id.toolBar)
-        drawerlayout=findViewById(R.id.drawerLayout)
-        navigationview=findViewById(R.id.navigationview)
+        toolbar = findViewById(R.id.toolBar)
+        drawerlayout = findViewById(R.id.drawerLayout)
+        navigationview = findViewById(R.id.navigationview)
         setUpToolbar()
 
         openDashboard()
 
-        val setActionBarDrawerToggle=ActionBarDrawerToggle(this@MainActivity,drawerlayout,
+        val setActionBarDrawerToggle = ActionBarDrawerToggle(
+            this@MainActivity, drawerlayout,
             R.string.open_drawer,
             R.string.close_drawer
         )
@@ -43,24 +44,23 @@ class MainActivity : AppCompatActivity() {
 
         navigationview.setNavigationItemSelectedListener {
 
-            if(previousmenuitem!=null)
-            {
-                previousmenuitem?.isChecked=false
+            if (previousmenuitem != null) {
+                previousmenuitem?.isChecked = false
             }
-            it.isCheckable=true
-            it.isChecked=true
-            previousmenuitem=it
-            when(it.itemId){
+            it.isCheckable = true
+            it.isChecked = true
+            previousmenuitem = it
+            when (it.itemId) {
                 R.id.dashboard -> {
-                    supportActionBar?.title="Dashboard"
+                    supportActionBar?.title = "Dashboard"
 
-                   openDashboard()
+                    openDashboard()
 
                     drawerlayout.closeDrawers()
                     Toast.makeText(this, "Dashboard", Toast.LENGTH_SHORT).show()
                 }
                 R.id.favourites -> {
-                    supportActionBar?.title="Favourites"
+                    supportActionBar?.title = "Favourites"
 
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, FavouritesFragment())
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Favourites", Toast.LENGTH_SHORT).show()
                 }
                 R.id.profile -> {
-                    supportActionBar?.title="Profile"
+                    supportActionBar?.title = "Profile"
 
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, ProfileFragment())
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
                 }
                 R.id.about -> {
-                    supportActionBar?.title="About"
+                    supportActionBar?.title = "About"
 
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, AboutFragment())
@@ -96,42 +96,41 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
     }
-    fun setUpToolbar(){
+
+    fun setUpToolbar() {
         setSupportActionBar(toolbar)
-        supportActionBar?.title="Book Store"
+        supportActionBar?.title = "Book Store"
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id=item.itemId
+        val id = item.itemId
 
-        if(id==android.R.id.home)
-        {
+        if (id == android.R.id.home) {
             drawerlayout.openDrawer(GravityCompat.START)
         }
         return super.onOptionsItemSelected(item)
     }
-    fun openDashboard(){
-        val fragment= DashboardFragment()
-        val transcation=supportFragmentManager.beginTransaction()
-        transcation.replace(R.id.frameLayout,fragment)
+
+    fun openDashboard() {
+        val fragment = DashboardFragment()
+        val transcation = supportFragmentManager.beginTransaction()
+        transcation.replace(R.id.frameLayout, fragment)
         transcation.commit()
 
-        supportActionBar?.title ="Dashboard"
+        supportActionBar?.title = "Dashboard"
         navigationview.setCheckedItem(R.id.dashboard)
 
     }
 
     override fun onBackPressed() {
-        val frag=supportFragmentManager.findFragmentById(R.id.frameLayout)
-        when(frag)
-        {
-            !is DashboardFragment ->openDashboard()
+        val frag = supportFragmentManager.findFragmentById(R.id.frameLayout)
+        when (frag) {
+            !is DashboardFragment -> openDashboard()
 
-            else->super.onBackPressed()
+            else -> super.onBackPressed()
         }
     }
 }

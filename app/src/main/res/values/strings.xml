@@ -14,4 +14,5 @@
     <string name="profile_fragment">Profile Fragment</string>
     <string name="about_fragment">About Fragment</string>
     <string name="list_item">List item</string>
+    <string name="hello_i_m_description">Hello I\'m Description</string>
 </resources>
