@@ -45,8 +45,8 @@ class DashboardRecyclerAdapter(val context: Context, val itemList: ArrayList<Boo
         Picasso.get().load(book.bookImage).error(R.drawable.book).into(holder.imgBookImage);
 
         holder.Linearlayout.setOnClickListener {
-           val intent=Intent(context,DescriptionActivity::class.java)
-            intent.putExtra("book_id",book.bookId)
+            val intent = Intent(context, DescriptionActivity::class.java)
+            intent.putExtra("book_id", book.bookId)
             context.startActivity(intent)
         }
 

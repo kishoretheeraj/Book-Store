@@ -5,9 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.Toast
@@ -54,6 +52,8 @@ class DashboardFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
+        setHasOptionsMenu(true)
+
         val View = inflater.inflate(R.layout.fragment_dashboard, container, false)
         PrograssBar = View.findViewById(R.id.progressBar)
         ProgressLayout = View.findViewById(R.id.progressLayout)
@@ -92,8 +92,9 @@ class DashboardFragment : Fragment() {
                                 recyclerAdapter =
                                     DashboardRecyclerAdapter(activity as Context, bookInfoList)
 
-                                recyclerView.adapter = recyclerAdapter
+
                                 recyclerView.layoutManager = layoutManager
+                                recyclerView.adapter = recyclerAdapter
 
 
                             }
@@ -115,13 +116,16 @@ class DashboardFragment : Fragment() {
 
 
                 }, Response.ErrorListener {
-                    println("Error is $it")
-                    Toast.makeText(
-                        activity as Context,
-                        "Volley Error Occurred!!!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    //handle error from api
+
+                    if(activity!=null){
+                        Toast.makeText(
+                            activity as Context,
+                            "Volley Error Occurred!!!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        //handle error from api
+                    }
+
 
                 }) {
                     override fun getHeaders(): MutableMap<String, String> {
@@ -157,5 +161,9 @@ class DashboardFragment : Fragment() {
         return View
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater?.inflate(R.menu.menu_dashboard,menu)
+
+    }
 
 }

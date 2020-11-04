@@ -5,13 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".Fragment.FavouritesFragment">
 
-    <TextView
-        android:id="@+id/txtFavourites"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerFavourite"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/favourites_fragments"
-        android:textSize="20sp"
-        android:padding="10dp"/>
+        android:layout_marginTop="2dp" />
 
+    <RelativeLayout
+        android:id="@+id/favProgressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
 
+        <ProgressBar
+            android:id="@+id/FavprogressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
 </FrameLayout>

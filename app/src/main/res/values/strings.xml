@@ -15,4 +15,13 @@
     <string name="about_fragment">About Fragment</string>
     <string name="list_item">List item</string>
     <string name="hello_i_m_description">Hello I\'m Description</string>
+    <string name="hello_world">Hello World</string>
+    <string name="name_of_the_author">Name of the Author</string>
+    <string name="_4_5">4.5</string>
+    <string name="rs_299">Rs. 299</string>
+    <string name="_4_51">4.5</string>
+    <string name="name_of_the_author1">Name of the Author</string>
+    <string name="rs_2991">Rs. 299</string>
+    <string name="name_of_the_book">Name of the book</string>
+    <string name="action_sort">Action Sort</string>
 </resources>

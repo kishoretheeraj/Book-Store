@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="8dp"
-                android:text="Name of the book"
+                android:text="@string/name_of_the_book"
                 android:textColor="#000000"
                 android:textSize="18sp" />
 
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txtBookName"
                 android:padding="8dp"
-                android:text="Name of the Author"
+                android:text="@string/name_of_the_author"
                 android:textSize="15sp" />
 
             <TextView
@@ -56,7 +56,7 @@
                 android:layout_below="@id/txtBookAuthor"
                 android:layout_alignParentBottom="true"
                 android:padding="8dp"
-                android:text="Rs. 299"
+                android:text="@string/rs_299"
                 android:textColor="#357a38"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -71,7 +71,7 @@
             android:drawablePadding="4dp"
             android:drawableTint="@android:color/holo_orange_light"
             android:padding="4dp"
-            android:text="4.5"
+            android:text="@string/_4_5"
             android:textColor="#ffca28"
             android:textSize="20sp"
             android:textStyle="bold" />
