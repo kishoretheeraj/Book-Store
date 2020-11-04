@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:text="@string/about_fragment"
         android:textSize="20sp"
-        android:padding="10dp"/>
+        android:padding="10dp" />
 
 
 </FrameLayout>

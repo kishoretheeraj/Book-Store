@@ -14,6 +14,7 @@
         android:layout_height="match_parent"
         android:weightSum="11"
         android:orientation="vertical">
+
         <ImageView
             android:id="@+id/imgFav"
             android:layout_width="match_parent"
@@ -21,7 +22,8 @@
             android:layout_weight="5"
             android:background="#f5f5f5"
             android:scaleType="fitCenter"
-            android:src="@drawable/book"/>
+            android:src="@drawable/book" />
+
         <TextView
             android:id="@+id/txtFavBookName"
             android:layout_width="match_parent"
@@ -31,7 +33,8 @@
             android:gravity="center"
             android:textColor="#000000"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
+
         <TextView
             android:id="@+id/txtFavBookAuthor"
             android:layout_width="match_parent"
@@ -40,6 +43,7 @@
             android:gravity="center"
             android:text="@string/name_of_the_author"
             android:textSize="13sp" />
+
         <TextView
             android:id="@+id/txtFavBookPrice"
             android:layout_width="match_parent"
@@ -50,6 +54,7 @@
             android:textColor="#357a38"
             android:textSize="15sp"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/txtFavBookRating"
             android:layout_width="wrap_content"

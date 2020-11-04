@@ -50,11 +50,10 @@ class DashboardFragment : Fragment() {
 
     val bookInfoList = arrayListOf<Book>()
 
-    var ratingComparator=Comparator<Book>{ book1, book2->
-        if(book1.bookRating.compareTo(book2.bookRating, true)==0){
+    var ratingComparator = Comparator<Book> { book1, book2 ->
+        if (book1.bookRating.compareTo(book2.bookRating, true) == 0) {
             book1.bookName.compareTo(book2.bookName, true)
-        }
-        else{
+        } else {
             book1.bookRating.compareTo(book2.bookRating, true)
         }
     }
@@ -182,8 +181,8 @@ class DashboardFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id= item.itemId
-        if(id==R.id.action_sort){
+        val id = item.itemId
+        if (id == R.id.action_sort) {
             Collections.sort(bookInfoList, ratingComparator)
             bookInfoList.reverse()
         }

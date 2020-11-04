@@ -15,9 +15,9 @@ interface BookDao {
     fun deleteBook(bookEntity: BookEntity)
 
     @Query("SELECT * FROM books")
-    fun getAllBooks():List<BookEntity >
+    fun getAllBooks(): List<BookEntity>
 
     @Query("SELECT * FROM books WHERE book_id=:bookId")
-    fun getBookbyId(bookId: String ): BookEntity
+    fun getBookbyId(bookId: String): BookEntity
 
 }

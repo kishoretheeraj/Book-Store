@@ -7,6 +7,6 @@
         android:iconTint="#ffffff"
         android:title="@string/action_sort"
         android:orderInCategory="100"
-        app:showAsAction="always"/>
+        app:showAsAction="always" />
 
 </menu>

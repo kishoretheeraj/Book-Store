@@ -110,6 +110,7 @@
                     android:textSize="16sp"
                     android:textColor="#817F7F"
                     android:layout_marginTop="4dp" />
+
                 <TextView
                     android:id="@+id/txtDes"
                     android:layout_width="match_parent"
@@ -119,8 +120,7 @@
                     android:layout_margin="10dp"
                     android:text="@string/hello_i_m_description"
                     android:layout_below="@+id/aboutAuthor"
-                    android:padding="6dp"/>
-
+                    android:padding="6dp" />
 
 
             </RelativeLayout>
@@ -129,6 +129,7 @@
 
 
     </ScrollView>
+
     <Button
         android:id="@+id/Btnfav"
         android:layout_width="match_parent"
@@ -138,7 +139,7 @@
         android:text="add to favourites"
         android:textColor="#ffffff"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
     <RelativeLayout
         android:id="@+id/progressLayoutDes"

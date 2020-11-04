@@ -26,7 +26,7 @@ class FavouritesFragment : Fragment() {
     lateinit var progressBar: ProgressBar
     lateinit var layoutManager: RecyclerView.LayoutManager
     lateinit var recyclerAdapter: FavoriteRecyclerAdapter
-    var dbBookList= listOf<BookEntity>()
+    var dbBookList = listOf<BookEntity>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,24 +36,25 @@ class FavouritesFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
-        val view=inflater.inflate(R.layout.fragment_favourites, container, false)
+        val view = inflater.inflate(R.layout.fragment_favourites, container, false)
 
-        recyclerFav=view.findViewById(R.id.recyclerFavourite)
-        progressLayout=view.findViewById(R.id.favProgressLayout)
-        progressBar=view.findViewById(R.id.FavprogressBar)
+        recyclerFav = view.findViewById(R.id.recyclerFavourite)
+        progressLayout = view.findViewById(R.id.favProgressLayout)
+        progressBar = view.findViewById(R.id.FavprogressBar)
 
-        dbBookList=RetrieveFavourites(activity as Context).execute().get()
+        dbBookList = RetrieveFavourites(activity as Context).execute().get()
 
 
-        layoutManager=GridLayoutManager(activity as Context,2)
+        layoutManager = GridLayoutManager(activity as Context, 2)
 
-        if(activity!=null){
-            progressLayout.visibility=View.GONE
-            recyclerAdapter= FavoriteRecyclerAdapter(activity as Context,dbBookList)
-            recyclerFav.layoutManager=layoutManager
-            recyclerFav.adapter=recyclerAdapter
+        if (activity != null) {
+            progressLayout.visibility = View.GONE
+            recyclerAdapter = FavoriteRecyclerAdapter(activity as Context, dbBookList)
+            recyclerFav.layoutManager = layoutManager
+            recyclerFav.adapter = recyclerAdapter
         }
 
 
@@ -64,10 +65,9 @@ class FavouritesFragment : Fragment() {
     }
 
 
-    class RetrieveFavourites(val context: Context):AsyncTask<Void,Void,List<BookEntity>>()
-    {
+    class RetrieveFavourites(val context: Context) : AsyncTask<Void, Void, List<BookEntity>>() {
         override fun doInBackground(vararg params: Void?): List<BookEntity> {
-            val db=Room.databaseBuilder(context,BookDatabase::class.java,"books-db").build()
+            val db = Room.databaseBuilder(context, BookDatabase::class.java, "books-db").build()
 
             return db.bookDao().getAllBooks()
         }
