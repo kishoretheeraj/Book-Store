@@ -3,6 +3,9 @@ package com.example.bookstore.Fragment
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.provider.Settings
 import android.view.*
@@ -24,6 +27,9 @@ import com.example.bookstore.Model.Book
 import com.example.bookstore.R
 import com.example.bookstore.Util.ConnectionManager
 import org.json.JSONException
+import java.util.*
+import kotlin.Comparator
+import kotlin.collections.HashMap
 
 
 class DashboardFragment : Fragment() {
@@ -43,6 +49,15 @@ class DashboardFragment : Fragment() {
 
 
     val bookInfoList = arrayListOf<Book>()
+
+    var ratingComparator=Comparator<Book>{ book1, book2->
+        if(book1.bookRating.compareTo(book2.bookRating, true)==0){
+            book1.bookName.compareTo(book2.bookName, true)
+        }
+        else{
+            book1.bookRating.compareTo(book2.bookRating, true)
+        }
+    }
 
 
     override fun onCreateView(
@@ -117,7 +132,7 @@ class DashboardFragment : Fragment() {
 
                 }, Response.ErrorListener {
 
-                    if(activity!=null){
+                    if (activity != null) {
                         Toast.makeText(
                             activity as Context,
                             "Volley Error Occurred!!!",
@@ -162,8 +177,19 @@ class DashboardFragment : Fragment() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater?.inflate(R.menu.menu_dashboard,menu)
+        inflater.inflate(R.menu.menu_dashboard, menu)
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id= item.itemId
+        if(id==R.id.action_sort){
+            Collections.sort(bookInfoList, ratingComparator)
+            bookInfoList.reverse()
+        }
+        recyclerAdapter.notifyDataSetChanged()
+
+        return super.onOptionsItemSelected(item)
     }
 
 }

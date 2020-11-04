@@ -9,6 +9,7 @@
         android:title="@string/action_sort"
         android:orderInCategory="100"
         app:showAsAction="always"
+      android:iconTintMode="src_over"
         tools:targetApi="o" />
 
 </menu>
